@@ -21,11 +21,15 @@ function initializeBoard(){
   var divGrid = document.getElementById('tile-container').children;
   for (var i = 0; i < divGrid.length; i++){
     divGrid[i].innerHTML = board[i];
-    
+    console.log(divGrid[i]);
+    if(board[i] === 0){
+      divGrid[i].style.backgroundColor = 'white';
+    }
+
   }
 }
 
-
+//function for event listener
 
 
 
