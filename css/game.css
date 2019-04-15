@@ -1,0 +1,13 @@
+
+.tile {
+  height: 200px;
+  width: 200px;
+  background-color: #aaa;
+  color: green;
+  font-size: 150%;
+  border-radius: 5px;
+}
+
+#tile-5 {
+  background-color: #fff;
+}
