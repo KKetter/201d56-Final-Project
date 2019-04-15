@@ -18,7 +18,7 @@ new ValidMoves(0, [1, 3]);
 new ValidMoves(1, [0, 2, 4]);
 new ValidMoves(2, [1, 6]);
 new ValidMoves(3, [0, 4, 6]);
-new ValidMoves(4, [1, 3, 5, 8]);
+new ValidMoves(4, [1, 3, 5, 7]);
 new ValidMoves(5, [2, 4, 8]);
 new ValidMoves(6, [3, 7]);
 new ValidMoves(7, [4, 6, 8]);
@@ -57,6 +57,7 @@ function validMove(index, zeroIndex) {
     return true;
   }
   console.log(false);
+  console.log(allValidMoves);
   return false;
 }
 
