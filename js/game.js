@@ -9,6 +9,8 @@ var regularTileColor = '#CBC556';
 var tileFontColor = '#304F5E';
 var allValidMoves = [];
 var gridSize = 3;
+//score
+var score = 0;
 
 function ValidMoves(key, array) {
   this.key = key;
@@ -115,12 +117,28 @@ function handleClick(event){
   if (validMove(board.indexOf(select), indexOfZero)){
     board[board.indexOf(select)] = 0;
     board[indexOfZero] = select;
+    updateScore();
     drawBoard();
+    displayScore();
   }
+}
+
+//function to add number of moves
+function updateScore(){
+  score += 1;
+}
+
+//function to display score on page
+function displayScore(){
+  
+  var scoreDisplay = document.getElementById('move-number');
+  scoreDisplay.innerHTML = score;
+
 }
 
 //Invocation Zone
 generateRandomNumber();
 generateAllMoves();
 drawBoard();
+displayScore();
 boardGrid.addEventListener('click', handleClick);
