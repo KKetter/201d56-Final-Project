@@ -3,36 +3,31 @@ body {
   font-family: 'Anton', sans-serif;
 }
 
-header div {
-  float: left;
-  background-color: #CBC556;
-}
-
-#logo {
-  font-family: 'Bungee Inline', cursive;
-  color: #304F5E;
-  font-size: 4em;
-  text-decoration: underline;
-}
-
 nav {
   display: flex;
   justify-content: space-evenly;
-  height: 66px;
+  height: 100px;
   font-family: 'Anton', sans-serif;
   background-color: #CBC556;
-  color: #304F5E;
 }
 
 nav a {
-  margin-top: 20px;
+  margin-top: 30px;
   font-style: italic;
   font-size: 30px;
   color: #304F5E;
 }
 
 nav a:hover {
-  color: #ecd92b;
+  color: #F6927C;
+}
+
+#logo {
+  font-family: 'Bungee Inline', cursive;
+  font-size: 4em;
+  text-decoration: underline;
+  margin-top: 10px;
+  margin-left: -100px;
 }
 
 .play-space {
@@ -46,6 +41,15 @@ nav a:hover {
   border-width: 5px;
   max-width: 620px;
   margin: 0 auto;
+}
+
+.tile {
+  height: 200px;
+  width: 200px;
+  background-color: #aaa;
+  color: green;
+  font-size: 150%;
+  border-radius: 5px;
 }
 
 h1 {
