@@ -53,3 +53,9 @@
     - HTML5
     - CSS
     - Javascript
+
+## Color Palette:
+    - #304F5E Background
+    - #F6927C Font color
+    - #46B9AB Heading color
+    - #CBC556 Tiles
