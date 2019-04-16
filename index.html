@@ -1,56 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/index.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Anton|Bangers|Bungee+Inline|Bungee+Outline|Bungee+Shade|Press+Start+2P"
-      rel="stylesheet"
-    />
-    <title>Tile Slide</title>
-  </head>
-  <body>
-    <header>
-      <nav>
-        <a id="logo" href="index.html">Tile Slide</a>
-        <a class="nav-links" href="game.html">Play Game</a>
-        <a class="nav-links" href="score.html">High Score</a>
-        <a class="nav-links" href="about-us.html">About Us</a>
-      </nav>
-      <h1>Welcome to Tile Slide</h1>
-    </header>
-    <main>
-        <p class="sub-heading">Goal of the Game: Arrange the tiles in order starting from 1</p>
-        <div id="game-instructions">
-        <p>How to play:</p>
-        <ul>
-          <li>
-            Move the number tile to the blank tile by clicking the tile you want
-            to move.
-          </li>
-          <li>
-            You can move the tile horizontally or vertically next to the empty
-            tile.
-          </li>
-          <li>
-            Highest score is determined using the least number of movements to
-            solve the puzzle.
-          </li>
-        </ul>
-      </div>
-      <form id="user-form">
-        User name:<br />
-        <input type="text" name="username" />
-        <input type="submit" value="Submit" />
-      </form>
-    </main>
-    <footer>
-      <p id="copyright">Copyright &copy; 2019 Tile Slide</p>
-    </footer>
-    <script src="./js/app.js"></script>
-  </body>
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/reset.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/index.css" />
+  <link href="https://fonts.googleapis.com/css?family=Anton|Bangers|Bungee+Inline|Bungee+Outline|Bungee+Shade|Press+Start+2P" rel="stylesheet">
+  <title>Tile Slide</title>
+</head>
+
+<body>
+  <header>
+   
+    <nav>
+      <a id="logo" href="index.html">Tile Slide</a>
+      <a class="nav-links" href="game.html">Play Game</a>
+      <a class="nav-links" href="score.html">High Score</a>
+      <a class="nav-links" href="about-us.html">About Us</a>
+    </nav>
+    <h1>Welcome</h1>
+  </header>
+
+  <main>
+    <div class="instruction">
+      <p>Goal of the Game: Arrange the numbers in order starting from 1.</p>
+      <p>How to play:</p>
+      <ul id='game-instruction'>
+        <li>Move the number tile to the blank tile by clicking the tile you want to move.</li>
+        <li>You can move the tile horizontally or vertically next to the empty tile.</li>
+        <li>Highest score is determined using the least number of movements to solve the puzzle.</li>
+      </ul>
+      
+    </div>
+
+    <form id='userForm'>
+      User name:<br>
+      <input type="text" name="userName"> 
+      <input type="submit" value="Submit">
+    </form> 
+  
+  </main>
+ 
+  <footer>
+    <p>&copy;</p>
+  </footer>
+  <script src="./js/index.js"></script>
+</body>
+
 </html>
+
