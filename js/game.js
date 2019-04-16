@@ -16,16 +16,6 @@ function ValidMoves(key, array) {
   allValidMoves.push(this);
 }
 
-// new ValidMoves(0, [1, 3]);
-// new ValidMoves(1, [0, 2, 4]);
-// new ValidMoves(2, [1, 5]);
-// new ValidMoves(3, [0, 4, 6]);
-// new ValidMoves(4, [1, 3, 5, 7]);
-// new ValidMoves(5, [2, 4, 8]);
-// new ValidMoves(6, [3, 7]);
-// new ValidMoves(7, [4, 6, 8]);
-// new ValidMoves(8, [5, 7]);
-
 //Function to generate random numbers to board array
 function generateRandomNumber(){
   var random = Math.floor(Math.random() * grid);
@@ -71,8 +61,6 @@ function generateAllMoves(){
   for(var index = 0; index < (gridSize * gridSize); index++){
     new ValidMoves(index, generateIndexValidMoves(index));
   }
-
-  console.table(allValidMoves);
 }
 
 //function to place random numbers to the board
@@ -94,11 +82,8 @@ function drawBoard(){
 //function to check that tile clicked shares border with empty tile
 function validMove(index, zeroIndex) {
   if (allValidMoves[index].moves.includes(zeroIndex)) {
-    console.log(true);
     return true;
   }
-  console.log(false);
-  console.log(allValidMoves);
   return false;
 }
 
