@@ -107,3 +107,26 @@ li {
   margin-top: 2em;
   color: #F6927C;
 }
+
+/*** About Us Styles ***/
+
+.about-us{
+  text-align: center; 
+}
+
+h2{
+  margin: 30px; 
+  font-size: 35px;
+  font-weight: bold;
+  animation-direction: reverse;
+}
+
+h3{
+  font-size: 30px;
+}
+
+p{
+  margin-bottom: 30px;
+  animation-direction: reverse;
+}
+
