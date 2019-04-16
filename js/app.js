@@ -116,6 +116,7 @@ function handleClick(event){
   }
 }
 
+//Invocation Zone
 generateRandomNumber();
 generateAllMoves();
 drawBoard();
