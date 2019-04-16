@@ -7,6 +7,7 @@ var divGrid = boardGrid.children;
 var emptyTileColor = 'white';
 var regularTileColor = '#aaa';
 var allValidMoves = [];
+var gridSize = 3;
 
 function ValidMoves(key, array) {
   this.key = key;
@@ -14,15 +15,15 @@ function ValidMoves(key, array) {
   allValidMoves.push(this);
 }
 
-new ValidMoves(0, [1, 3]);
-new ValidMoves(1, [0, 2, 4]);
-new ValidMoves(2, [1, 5]);
-new ValidMoves(3, [0, 4, 6]);
-new ValidMoves(4, [1, 3, 5, 7]);
-new ValidMoves(5, [2, 4, 8]);
-new ValidMoves(6, [3, 7]);
-new ValidMoves(7, [4, 6, 8]);
-new ValidMoves(8, [5, 7]);
+// new ValidMoves(0, [1, 3]);
+// new ValidMoves(1, [0, 2, 4]);
+// new ValidMoves(2, [1, 5]);
+// new ValidMoves(3, [0, 4, 6]);
+// new ValidMoves(4, [1, 3, 5, 7]);
+// new ValidMoves(5, [2, 4, 8]);
+// new ValidMoves(6, [3, 7]);
+// new ValidMoves(7, [4, 6, 8]);
+// new ValidMoves(8, [5, 7]);
 
 //Function to generate random numbers to board array
 function generateRandomNumber(){
@@ -34,6 +35,43 @@ function generateRandomNumber(){
       board.push(random);
     }
   }
+}
+
+//function to generate valid moves
+function generateIndexValidMoves(index){
+  var moveList = [];
+  var maxIndex = gridSize - 1;
+  //horizontal move
+  if ((index % gridSize) === 0){
+    moveList.push(index + 1);
+  } else if ((index % gridSize) === maxIndex){
+    moveList.push(index-1);
+  } else{
+    moveList.push(index + 1);
+    moveList.push(index - 1);
+  }
+
+  //vertical moves
+  var downIndex = index + gridSize;
+  if(downIndex < (gridSize * gridSize) && downIndex >= 0){
+    moveList.push(downIndex);
+  }
+
+  var upIndex = index - gridSize;
+  if(upIndex < (gridSize * gridSize) && upIndex >= 0){
+    moveList.push(upIndex);
+  }
+
+  return moveList;
+}
+
+//function to generate all valid moves
+function generateAllMoves(){
+  for(var index = 0; index < (gridSize * gridSize); index++){
+    new ValidMoves(index, generateIndexValidMoves(index));
+  }
+
+  console.table(allValidMoves);
 }
 
 //function to place random numbers to the board
@@ -79,5 +117,6 @@ function handleClick(event){
 }
 
 generateRandomNumber();
+generateAllMoves();
 drawBoard();
 boardGrid.addEventListener('click', handleClick);
