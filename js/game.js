@@ -5,7 +5,8 @@ var grid = 9;
 var boardGrid = document.getElementById('tile-container');
 var divGrid = boardGrid.children;
 var emptyTileColor = 'white';
-var regularTileColor = '#aaa';
+var regularTileColor = '#CBC556';
+var tileFontColor = '#304F5E';
 var allValidMoves = [];
 var gridSize = 3;
 
@@ -77,13 +78,15 @@ function generateAllMoves(){
 //function to place random numbers to the board
 function drawBoard(){
   for (var i = 0; i < divGrid.length; i++){
-    divGrid[i].innerHTML = board[i];
+    divGrid[i].innerHTML = `<span class="board-number">${board[i]}</span>`;
 
     if(board[i] === 0){
       divGrid[i].style.backgroundColor = emptyTileColor;
+      divGrid[i].style.color = emptyTileColor;
       divGrid[i].setAttribute('name', i);
     } else{
       divGrid[i].style.backgroundColor = regularTileColor;
+      divGrid[i].style.color = tileFontColor;
     }
   }
 }
