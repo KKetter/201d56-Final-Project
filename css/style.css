@@ -119,6 +119,7 @@ h2{
   font-size: 35px;
   font-weight: bold;
   animation-direction: reverse;
+  animation: slideup 4s linear;
 }
 
 h3{
@@ -128,5 +129,16 @@ h3{
 p{
   margin-bottom: 30px;
   animation-direction: reverse;
+  animation: slideup 5s linear;
 }
 
+@keyframes slideup {
+  from {
+    margin-bottom: 100%;
+   
+  }
+
+  to {
+    margin-bottom: 0%;
+  }
+}
