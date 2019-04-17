@@ -55,6 +55,7 @@ nav a:hover {
 
 h1 {
   font-size: 3em;
+  font-family: 'Anton', sans-serif;
   text-align: center;
   margin-top: 30px;
   color: #F6927C;
@@ -82,7 +83,7 @@ footer {
 }
 
 #game-instructions {
-  margin: 2em 0 0 2em;
+  margin: 2em 0 0 0;
 }
 
 li {
@@ -92,10 +93,6 @@ li {
 #copyright {
   text-align: center;
   padding-top: 40px;
-}
-
-#user-form {
-  margin: 2em 0 0 2em;
 }
 
 .board-number {
@@ -119,7 +116,7 @@ li {
   font-size: 35px;
   font-weight: bold;
   animation-direction: reverse;
-  animation: slideup 4s linear;
+  animation: slideup 3s linear;
 }
 
 .about-us h3{
@@ -129,7 +126,7 @@ li {
 .about-us p{
   margin-bottom: 30px;
   animation-direction: reverse;
-  animation: slideup 5s linear;
+  animation: slideup 3s linear;
 }
 
 @keyframes slideup {

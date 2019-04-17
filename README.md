@@ -5,10 +5,6 @@
 ## Download/Setup:
 
 [Tile Slide GH Repo](https://github.com/KKetter/201d56-Final-Project.git)
-    
-[Tile Slide Deployment](www.trustMeThisWorks.com)
-
-
 
 ## Program Operation:
     Upon opening Tile Slide the user is greeted with a nickname entry field and a start button.
