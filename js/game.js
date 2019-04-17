@@ -107,6 +107,7 @@ function handleClick(event) {
     drawBoard();
     updateMoves();
     displayScore();
+    gameState[0].gameOver = checkPuzzleSolved();
     // var gameInstance = new Game(localStorage.getItem('username'), board, score);
     localStorage.setItem('gameState', JSON.stringify(gameState));
     console.log('', JSON.stringify(gameState));
@@ -132,6 +133,22 @@ function Game(username, board, score, gameOver) {
   this.score = score;
   this.gameOver = gameOver;
   gameState.push(this);
+}
+
+//function to check if the puzzle is solved
+function checkPuzzleSolved(){
+  for(var i = 0; i < board.length; i++){
+    var currentNumber = 1;
+    if(board[i] !== 0){
+      if(board[i] !== currentNumber){
+        console.table('Current board is not solved', board);
+        return false;
+      }
+      currentNumber += 1;
+    }
+  }
+  console.table('Current board is solved', board);
+  return true;
 }
 
 //Invocation Zone
