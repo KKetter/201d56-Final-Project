@@ -164,9 +164,11 @@ function checkPuzzleSolved(){
 }
 
 //function to handle New Game button
-function handleResetGame(){
-  generateRandomNumber();
+function handleNewGame(){
+  localStorage.clear();
+  drawBoard();
   score = 0;
+  displayScore();
 }
 
 
@@ -189,12 +191,14 @@ else{
   score = 0;
   new Game(localStorage.getItem('username'), board, score, gameOver);
 }
+
+var initialBoard = board;
 drawBoard();
 displayScore();
 generateAllMoves();
 
 //Listener for New game button
-var resetGameButton = document.getElementById('game-button');
-resetGameButton.addEventListener('click', handleResetGame);
+var newGameButton = document.getElementById('game-button');
+newGameButton.addEventListener('click', handleNewGame);
 
 boardGrid.addEventListener('click', handleClick);
