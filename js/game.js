@@ -114,7 +114,6 @@ function handleClick(event) {
       localStorage.setItem('gameInfo', JSON.stringify(gameInfo));
       alert('Yey, you solved the puzzle!');
     }
-    // var gameInstance = new Game(localStorage.getItem('username'), board, score);
     localStorage.setItem('gameState', JSON.stringify(gameState));
   }
 }
@@ -169,8 +168,9 @@ if (localStorage.gameState) {
     if(localStorage.getItem('username') === parsedLS[i].username){
       username = parsedLS[i].username;
       board = parsedLS[i].board;
-      score = parsedLS[i].score;
+      score = parseInt(parsedLS[i].score);
       gameOver = parsedLS[i].gameOver;
+      new Game(username, board, score, gameOver);
     } else{
       generateRandomNumber();
     }
