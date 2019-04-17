@@ -159,9 +159,16 @@ function checkPuzzleSolved(){
       console.log('Checking current number', currentNumber);
     }
   }
-  // console.table('Current board is solved', board);
+  
   return true;
 }
+
+//function to handle New Game button
+function handleResetGame(){
+  generateRandomNumber();
+  score = 0;
+}
+
 
 //Invocation Zone
 if (localStorage.gameState) {
@@ -185,4 +192,9 @@ else{
 drawBoard();
 displayScore();
 generateAllMoves();
+
+//Listener for New game button
+var resetGameButton = document.getElementById('game-button');
+resetGameButton.addEventListener('click', handleResetGame);
+
 boardGrid.addEventListener('click', handleClick);
