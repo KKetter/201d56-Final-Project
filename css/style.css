@@ -114,7 +114,7 @@ li {
   text-align: center; 
 }
 
-h2{
+.about-us h2{
   margin: 30px; 
   font-size: 35px;
   font-weight: bold;
@@ -122,11 +122,11 @@ h2{
   animation: slideup 4s linear;
 }
 
-h3{
+.about-us h3{
   font-size: 30px;
 }
 
-p{
+.about-us p{
   margin-bottom: 30px;
   animation-direction: reverse;
   animation: slideup 5s linear;
