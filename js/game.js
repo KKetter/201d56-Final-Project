@@ -159,9 +159,18 @@ function checkPuzzleSolved(){
       console.log('Checking current number', currentNumber);
     }
   }
-  // console.table('Current board is solved', board);
+  
   return true;
 }
+
+//function to handle New Game button
+function handleNewGame(){
+  localStorage.clear();
+  drawBoard();
+  score = 0;
+  displayScore();
+}
+
 
 //Invocation Zone
 if (localStorage.gameState) {
@@ -182,7 +191,14 @@ else{
   score = 0;
   new Game(localStorage.getItem('username'), board, score, gameOver);
 }
+
+var initialBoard = board;
 drawBoard();
 displayScore();
 generateAllMoves();
+
+//Listener for New game button
+var newGameButton = document.getElementById('game-button');
+newGameButton.addEventListener('click', handleNewGame);
+
 boardGrid.addEventListener('click', handleClick);
