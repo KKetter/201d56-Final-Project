@@ -107,16 +107,26 @@ function handleClick(event) {
     drawBoard();
     updateMoves();
     displayScore();
+    //Check if the puzzle is solved
+    gameOver = checkPuzzleSolved();
+    console.log('Puzzle solved ', gameOver);
+    gameState[0].gameOver = gameOver;
+    if(gameOver === true){
+      //checkHighScore(userName, score)
+      alert('Yey, you solved the puzzle!');
+    }
     // var gameInstance = new Game(localStorage.getItem('username'), board, score);
     localStorage.setItem('gameState', JSON.stringify(gameState));
     console.log('', JSON.stringify(gameState));
   }
+
 }
 
 //function to add number of moves
 function updateMoves() {
   score += 1;
   gameState[0].score = score;
+  
 }
 
 //function to display score on page
@@ -132,6 +142,25 @@ function Game(username, board, score, gameOver) {
   this.score = score;
   this.gameOver = gameOver;
   gameState.push(this);
+}
+
+//function to check if the puzzle is solved
+function checkPuzzleSolved(){
+  var currentNumber = 1;
+  for(var i = 0; i < board.length; i++){
+    
+    if(board[i] !== 0){
+      // console.log('Checking current number', currentNumber);
+      if(board[i] !== currentNumber){
+        console.table('Current board is not solved', board);
+        return false;
+      }
+      currentNumber += 1;
+      console.log('Checking current number', currentNumber);
+    }
+  }
+  // console.table('Current board is solved', board);
+  return true;
 }
 
 //Invocation Zone
