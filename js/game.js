@@ -12,6 +12,7 @@ var allValidMoves = [];
 var gridSize = 3;
 var score;
 var username;
+var gameOver = false;
 
 function ValidMoves(key, array) {
   this.key = key;
@@ -82,7 +83,6 @@ function drawBoard() {
   }
 }
 
-
 //function to check that tile clicked shares border with empty tile
 function validMove(index, zeroIndex) {
   if (allValidMoves[index].moves.includes(zeroIndex)) {
@@ -105,6 +105,7 @@ function handleClick(event) {
     board[board.indexOf(select)] = 0;
     board[indexOfZero] = select;
     drawBoard();
+    updateMoves();
     displayScore();
     // var gameInstance = new Game(localStorage.getItem('username'), board, score);
     localStorage.setItem('gameState', JSON.stringify(gameState));
@@ -112,10 +113,11 @@ function handleClick(event) {
   }
 }
 
-// //function to add number of moves
-// function updateScore() {
-//   score += 1;
-// }
+//function to add number of moves
+function updateMoves() {
+  score += 1;
+  gameState[0].score = score;
+}
 
 //function to display score on page
 function displayScore() {
@@ -124,10 +126,11 @@ function displayScore() {
 }
 
 //game object constructor
-function Game(username, board, score) {
+function Game(username, board, score, gameOver) {
   this.username = username;
   this.board = board;
   this.score = score;
+  this.gameOver = gameOver;
   gameState.push(this);
 }
 
@@ -136,9 +139,10 @@ if (localStorage.gameState) {
   var parsedLS = JSON.parse(localStorage.gameState);
   for (var i = 0; i < parsedLS.length; i++){
     if(localStorage.getItem('username') === parsedLS[i].username){
+      username = parsedLS[i].username;
       board = parsedLS[i].board;
       score = parsedLS[i].score;
-      username = parsedLS[i].username;
+      gameOver = parsedLS[i].gameOver;
     } else{
       generateRandomNumber();
     }
@@ -147,10 +151,9 @@ if (localStorage.gameState) {
 else{
   generateRandomNumber();
   score = 0;
-  new Game(localStorage.getItem('username'), board, score);
+  new Game(localStorage.getItem('username'), board, score, gameOver);
 }
 drawBoard();
 displayScore();
 generateAllMoves();
 boardGrid.addEventListener('click', handleClick);
-
