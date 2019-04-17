@@ -107,6 +107,7 @@ function handleClick(event) {
     drawBoard();
     updateMoves();
     displayScore();
+    //Check if the puzzle is solved
     gameOver = checkPuzzleSolved();
     console.log('Puzzle solved ', gameOver);
     gameState[0].gameOver = gameOver;
@@ -119,13 +120,6 @@ function handleClick(event) {
     console.log('', JSON.stringify(gameState));
   }
 
-  gameOver = checkPuzzleSolved();
-  
-  if(gameOver === true){
-    //checkHighScore(userName, score)
-    alert('Yey, you solved the puzzle!');
-  }
-  
 }
 
 //function to add number of moves
