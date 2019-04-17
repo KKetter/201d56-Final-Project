@@ -142,3 +142,15 @@ li {
     margin-bottom: 0%;
   }
 }
+
+/* Game Page */
+#new-game-button input{
+  margin: 30px auto;
+  display: block;
+  background-color: #CBC556;
+  padding: 12px 30px;
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  color: #304F5E;
+  
+}
