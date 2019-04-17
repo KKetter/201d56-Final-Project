@@ -1,22 +1,25 @@
 'use strict';
 // global variables
-var pusher = {};
 var scoreBase = [];
-var userName = 'david';
-var score = 90;
-function checkHighScore(userName, score){
+
+function checkHighScore(user, userScore){
   if (localStorage.scores){
     var highScore = JSON.parse(localStorage.scores);
     console.log(highScore);
     scoreBase = highScore;
   }
-  pusher[userName]= score;
-  scoreBase.push(pusher);
+  scoreBase.push({userName: user, score: userScore});
 }
 
 function saveHighScores(){
   localStorage.setItem('scores', JSON.stringify(scoreBase));
 }
-
-checkHighScore(userName,score);
+// function to sort object. from MDN Array.prototype.sort
+function compare(a,b){
+  if (a.score < b.score) return -1;
+  if (a.score > b.score) return 1;
+  return 0;
+}
+checkHighScore('jorie',10);
+scoreBase.sort(compare);
 saveHighScores();
