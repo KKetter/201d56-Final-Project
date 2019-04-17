@@ -107,7 +107,12 @@ function handleClick(event) {
     drawBoard();
     updateMoves();
     displayScore();
-    gameState[0].gameOver = checkPuzzleSolved();
+    gameOver = checkPuzzleSolved();
+    gameState[0].gameOver = gameOver;
+    if(gameOver === true){
+      //checkHighScore(userName, score)
+      alert('Yey, you solved the puzzle!');
+    }
     // var gameInstance = new Game(localStorage.getItem('username'), board, score);
     localStorage.setItem('gameState', JSON.stringify(gameState));
     console.log('', JSON.stringify(gameState));
