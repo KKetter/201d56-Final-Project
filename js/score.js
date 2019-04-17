@@ -29,8 +29,6 @@ function renderScores(){
     targetEl.appendChild(liEl);
   }
 }
-
-checkHighScore('anthony',1);
 scoreBase.sort(compare);
 saveHighScores();
 renderScores();
