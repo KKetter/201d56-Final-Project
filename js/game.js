@@ -56,7 +56,6 @@ function generateIndexValidMoves(index) {
   if (upIndex < (gridSize * gridSize) && upIndex >= 0) {
     moveList.push(upIndex);
   }
-
   return moveList;
 }
 
@@ -109,24 +108,21 @@ function handleClick(event) {
     displayScore();
     //Check if the puzzle is solved
     gameOver = checkPuzzleSolved();
-    console.log('Puzzle solved ', gameOver);
     gameState[0].gameOver = gameOver;
     if(gameOver === true){
-      //checkHighScore(userName, score)
+      let gameInfo = [username, score];
+      localStorage.setItem('gameInfo', JSON.stringify(gameInfo));
       alert('Yey, you solved the puzzle!');
     }
     // var gameInstance = new Game(localStorage.getItem('username'), board, score);
     localStorage.setItem('gameState', JSON.stringify(gameState));
-    console.log('', JSON.stringify(gameState));
   }
-
 }
 
 //function to add number of moves
 function updateMoves() {
   score += 1;
   gameState[0].score = score;
-  
 }
 
 //function to display score on page
@@ -148,29 +144,23 @@ function Game(username, board, score, gameOver) {
 function checkPuzzleSolved(){
   var currentNumber = 1;
   for(var i = 0; i < board.length; i++){
-    
     if(board[i] !== 0){
-      // console.log('Checking current number', currentNumber);
       if(board[i] !== currentNumber){
-        console.table('Current board is not solved', board);
         return false;
       }
       currentNumber += 1;
-      console.log('Checking current number', currentNumber);
     }
   }
-  
   return true;
 }
 
 //function to handle New Game button
 function handleNewGame(){
-  localStorage.clear();
+  localStorage.clear('gameState');
   drawBoard();
   score = 0;
   displayScore();
 }
-
 
 //Invocation Zone
 if (localStorage.gameState) {
@@ -185,14 +175,12 @@ if (localStorage.gameState) {
       generateRandomNumber();
     }
   }
-}
-else{
+} else {
   generateRandomNumber();
   score = 0;
   new Game(localStorage.getItem('username'), board, score, gameOver);
 }
 
-var initialBoard = board;
 drawBoard();
 displayScore();
 generateAllMoves();
@@ -200,5 +188,4 @@ generateAllMoves();
 //Listener for New game button
 var newGameButton = document.getElementById('game-button');
 newGameButton.addEventListener('click', handleNewGame);
-
 boardGrid.addEventListener('click', handleClick);
