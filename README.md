@@ -23,7 +23,7 @@
                     ->| 4 -> 5 -> 6 |->
                     ->| 7 -> 8      |
     
-    This must be accomplisedh by only moving tiles adjacent to the empty square.
+    This must be accomplised by only moving tiles adjacent to the empty square.
 
     All working solutions ignore the empty square when checking for box ordering.  
 
@@ -35,7 +35,7 @@
 
     After completion of the puzzle, the user is notified that the puzzle is solved. If the user scored high enough, it is displayed to the scores page.  
     
-    From this page the following options are provided:
+    From this page, the following options are provided:
         1) Play Again - user nickname is saved to local storage and grid is reinitialized.
 
         2) New user - user is sent back to nickname entry, scores are retained.
