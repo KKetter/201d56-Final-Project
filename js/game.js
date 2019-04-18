@@ -1,6 +1,5 @@
 'use strict';
 
-
 var board = [];
 var gameState = [];
 var grid = 9;
@@ -16,6 +15,7 @@ var username;
 var gameOver = false;
 var binary = false;
 var scoreBase = [];
+var newGameClicked = false;
 
 // Constructor for valid moves
 function ValidMoves(key, array) {
@@ -216,6 +216,14 @@ function compare(a,b){
   return 0;
 }
 
+function showGameButtons() {
+  let xx = document.getElementById('instructions');
+  xx.style.display = 'none';
+
+  let xxx = document.getElementById('new-binary-button');
+  xxx.style.display = 'block';
+}
+
 //game object constructor
 function Game(username, board, score, gameOver) {
   this.username = username;
@@ -240,11 +248,60 @@ function checkPuzzleSolved(){
 }
 
 //function to handle New Game button
-function handleNewGame(){
+function handleNewGame(e){
+  e.preventDefault();
+  board = [];
+  gameState = [];
+  boardGrid = document.getElementById('tile-container');
+  divGrid = boardGrid.children;
+  allValidMoves = [];
+  gameOver = false;
+  binary = false;
+  scoreBase = [];
+  newGameClicked = false;
+  if (localStorage.gameState) {
+    var parsedLS = JSON.parse(localStorage.gameState);
+
+    for (var i = 0; i < parsedLS.length; i++){
+      if(localStorage.getItem('username') === parsedLS[i].username){
+        username = parsedLS[i].username;
+        //Check if board is empty or not
+        if(parsedLS[i].board){
+          board = parsedLS[i].board;
+        } else{
+          generateRandomNumber();
+        }
+
+        //Check if score is empty or not
+        if(parsedLS[i].score){
+          score = parsedLS[i].score;
+        } else{
+          score = 0;
+        }
+
+        //Check if game over flag is empty
+        if(parsedLS[i].gameOver){
+          gameOver = parsedLS[i].gameOver;
+        } else{
+          gameOver = false;
+        }
+
+      } else{
+        initializeBoard();
+      }
+      new Game(username, board, score, gameOver);
+    }
+  } else {
+    initializeBoard();
+    new Game(username, board, score, gameOver);
+  }
   localStorage.removeItem('gameState');
   drawBoard();
   score = 0;
   displayScore();
+  generateAllMoves();
+  newGameClicked = true;
+  showGameButtons();
 }
 
 //function to handle New Binary Game button
@@ -266,7 +323,7 @@ function initializeBoard(){
 //Invocation Zone
 if (localStorage.gameState) {
   var parsedLS = JSON.parse(localStorage.gameState);
- 
+
   for (var i = 0; i < parsedLS.length; i++){
     if(localStorage.getItem('username') === parsedLS[i].username){
       username = parsedLS[i].username;
@@ -276,7 +333,7 @@ if (localStorage.gameState) {
       } else{
         generateRandomNumber();
       }
-      
+
       //Check if score is empty or not
       if(parsedLS[i].score){
         score = parsedLS[i].score;
