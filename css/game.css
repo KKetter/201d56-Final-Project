@@ -13,6 +13,21 @@ li {
 }
 
 #ins-banner {
+  margin-top: 2em;
+}
+
+  #info-banner {
+    text-align: center;
+    margin-top: 2em;
+    color: #F6927C;
+    font-size: 1.5em;
+  
+  }
+  
+  #ins-text {
+    margin-top: 1em;
+  }
+  
 
 /* Game Page */
 .play-space {
@@ -65,16 +80,3 @@ li {
   font-size: 20px;
   color: #304F5E; 
 }
-
-#info-banner {
-  text-align: center;
-  margin-top: 2em;
-  color: #F6927C;
-  font-size: 1.5em;
-
-}
-
-#ins-text {
-  margin-top: 1em;
-}
-
