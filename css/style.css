@@ -104,10 +104,11 @@ li {
   padding-top: 40px;
 }
 
-#move-counter {
+#info-banner {
   text-align: center;
   margin-top: 2em;
   color: #F6927C;
+  font-size: 1.5em;
 }
 
 /*** About Us Styles ***/
@@ -132,12 +133,6 @@ li {
   margin-bottom: 30px;
   animation-direction: reverse;
   animation: slideup 3s linear;
-}
-
-#you-won {
-  margin-top: 20px;
-  text-align: center;
-  color: #F6927C;
 }
 
 @keyframes slideup {
