@@ -245,13 +245,28 @@ if (localStorage.gameState) {
   for (var i = 0; i < parsedLS.length; i++){
     if(localStorage.getItem('username') === parsedLS[i].username){
       username = parsedLS[i].username;
-      board = parsedLS[i].board;
-      score = parseInt(parsedLS[i].score);
-      gameOver = parsedLS[i].gameOver;
-      new Game(username, board, score, gameOver);
+      //Check if board is empty or not
+      if(parsedLS[i].board){
+        board = parsedLS[i].board;
+      } else{
+        generateRandomNumber();
+      }
+      
+      //Check if score is empty or not
+      if(parsedLS[i].score){
+        score = parsedLS[i].score;
+      } else{
+        score = 0;
+      }
+    
+    //   score = parseInt(parsedLS[i].score);
+    //   gameOver = parsedLS[i].gameOver;
+    //   new Game(username, board, score, gameOver);
     } else{
       generateRandomNumber();
+      score = 0;
     }
+    new Game(username, board, score, gameOver);
   }
 } else {
   generateRandomNumber();
