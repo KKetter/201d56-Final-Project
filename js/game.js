@@ -259,6 +259,14 @@ function handleNewGame(e){
   binary = false;
   scoreBase = [];
   newGameClicked = false;
+
+  //function to initialize board
+  function initializeBoard(){
+    generateRandomNumber();
+    score = 0;
+    username = localStorage.getItem('username');
+  }
+  //Invocation Zone
   if (localStorage.gameState) {
     var parsedLS = JSON.parse(localStorage.gameState);
 
@@ -295,13 +303,18 @@ function handleNewGame(e){
     initializeBoard();
     new Game(username, board, score, gameOver);
   }
+
   localStorage.removeItem('gameState');
+  board = [2, 0, 3, 1, 4, 5, 6, 7, 8]; // easy game beat hack
   drawBoard();
   score = 0;
   displayScore();
   generateAllMoves();
   newGameClicked = true;
   showGameButtons();
+  var newGameButton = document.getElementById('game-button');
+  newGameButton.addEventListener('click', handleNewGame);
+  boardGrid.addEventListener('click', handleClick);
 }
 
 //function to handle New Binary Game button
@@ -358,7 +371,6 @@ if (localStorage.gameState) {
   new Game(username, board, score, gameOver);
 }
 
-board = [2, 0, 3, 1, 4, 5, 6, 7, 8]; // easy game beat hack
 drawBoard();
 displayScore();
 generateAllMoves();
