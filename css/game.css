@@ -1,0 +1,23 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+li {
+  padding-bottom: 1em;
+}
+
+#instructions {
+  margin: 0 2em 0 2em;
+}
+
+#ins-banner {
+  text-align: center;
+  margin-top: 2em;
+  color: #F6927C;
+  font-size: 1.5em;
+}
+
+#ins-text {
+  margin-top: 1em;
+}
