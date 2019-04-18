@@ -164,7 +164,7 @@ function Game(username, board, score, gameOver) {
 
 //function to check if the puzzle is solved
 function checkPuzzleSolved(){
-  if (gameState[0].score > 3) return true;
+  // if (gameState[0].score > 3) return true;
   var currentNumber = 1;
   for(var i = 0; i < board.length; i++){
     if(board[i] !== 0){
