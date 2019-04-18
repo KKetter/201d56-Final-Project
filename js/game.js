@@ -122,7 +122,10 @@ function handleClick(event) {
     if(gameOver === true){
       let gameInfo = [gameState[0].username, score];
       localStorage.setItem('gameInfo', JSON.stringify(gameInfo));
-      alert('Yey, you solved the puzzle!');
+      boardGrid.removeEventListener('click', handleClick);
+      let winEl = document.getElementById('you-won');
+      winEl.innerText = 'Yey, you solved the puzzle!';
+      // alert('Yey, you solved the puzzle!');
     }
     localStorage.setItem('gameState', JSON.stringify(gameState));
   }
@@ -164,7 +167,6 @@ function Game(username, board, score, gameOver) {
 
 //function to check if the puzzle is solved
 function checkPuzzleSolved(){
-  if (gameState[0].score > 3) return true;
   var currentNumber = 1;
   for(var i = 0; i < board.length; i++){
     if(board[i] !== 0){
@@ -215,6 +217,7 @@ if (localStorage.gameState) {
   new Game(localStorage.getItem('username'), board, score, gameOver);
 }
 
+// board = [0, 2, 3, 1, 4, 5, 6, 7, 8]; // easy game beat hack
 drawBoard();
 displayScore();
 generateAllMoves();
