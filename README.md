@@ -1,6 +1,6 @@
 # 201d56-Final-Project
 ## Tile Slide
-    Motivation: 
+    Motivation: Re-create the sliding puzzle to improve logical thinking.
 
 ## Download/Setup:
 
@@ -23,11 +23,11 @@
                     ->| 4 -> 5 -> 6 |->
                     ->| 7 -> 8      |
     
-    This must be accomplisedh by only moving tiles adjancent to the empty square.
+    This must be accomplisedh by only moving tiles adjacent to the empty square.
 
     All working solutions ignore the empty square when checking for box ordering.  
 
-    Two of the possible solutions are shown below
+    Two of the possible solutions are shown below:
 
 ![solution1](../blob/master/img/solution1.png)
 
