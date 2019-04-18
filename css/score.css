@@ -25,14 +25,12 @@ ol {
   line-height: 2em;
 }
 li{
-  clear: both;
-  width: 60%;
-  margin-left: 18%;
+  width: 70%;
+  margin-left: 10%;
+  padding-bottom: 3.5%;
   list-style: decimal;
 }
 #scoreDisplay{
 float: right;
-}
-#userDisplay{
-float: left;
+text-align: right;
 }
