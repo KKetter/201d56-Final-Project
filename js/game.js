@@ -217,11 +217,17 @@ function compare(a,b){
 }
 
 function showGameButtons() {
-  let xx = document.getElementById('instructions');
-  xx.style.display = 'none';
+  let insEl = document.getElementById('instructions');
+  insEl.style.display = 'none';
+  let butEl = document.getElementById('new-binary-button');
+  butEl.style.display = 'block';
+}
 
-  let xxx = document.getElementById('new-binary-button');
-  xxx.style.display = 'block';
+function showBinaryGameIns() {
+  let insEl = document.getElementById('instructions');
+  insEl.style.display = 'block';
+  let butEl = document.getElementById('new-binary-button');
+  butEl.style.display = 'none';
 }
 
 //game object constructor
@@ -325,6 +331,7 @@ function handleBinaryGame(e){
   drawBoard();
   score = 0;
   displayScore();
+  showBinaryGameIns();
 }
 
 //function to initialize board
