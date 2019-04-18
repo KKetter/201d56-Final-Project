@@ -134,6 +134,12 @@ li {
   animation: slideup 3s linear;
 }
 
+#you-won {
+  margin-top: 20px;
+  text-align: center;
+  color: #F6927C;
+}
+
 @keyframes slideup {
   from {
     margin-bottom: 100%;
