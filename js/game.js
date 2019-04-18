@@ -14,6 +14,7 @@ var score;
 var username;
 var gameOver = false;
 var binary = false;
+var scoreBase = [];
 
 function ValidMoves(key, array) {
   this.key = key;
@@ -125,6 +126,9 @@ function handleClick(event) {
       boardGrid.removeEventListener('click', handleClick);
       let winEl = document.getElementById('info-text');
       winEl.innerText = `Yey, you solved the puzzle in ${score} moves!`;
+      highScoreInit();
+      scoreBase.sort(compare);
+      saveHighScores();
     }
     localStorage.setItem('gameState', JSON.stringify(gameState));
   }
@@ -153,6 +157,45 @@ function convertToBinary(decimal) {
 function convertToDecimal(binary) {
   var decimalNum = parseInt(binary, 2);
   return decimalNum;
+}
+
+function highScoreInit() {
+  if (localStorage.gameInfo){
+    var gameInfoArray = JSON.parse(localStorage.gameInfo);
+    localStorage.removeItem('gameInfo');
+    checkHighScore(gameInfoArray[0], gameInfoArray[1]);
+  } else {
+    loadHighScore();
+  }
+}
+
+function checkHighScore(user, userScore){
+  if (localStorage.scores){
+    var highScore = JSON.parse(localStorage.scores);
+    scoreBase = highScore;
+  }
+  scoreBase.push({userName: user, score: userScore});
+  scoreBase.sort(compare);
+}
+
+function loadHighScore(){
+  if (localStorage.scores){
+    var highScore = JSON.parse(localStorage.scores);
+    scoreBase = highScore;
+  }
+  scoreBase.sort(compare);
+}
+
+function saveHighScores(){
+  if (scoreBase.length > 10) scoreBase.pop();
+  localStorage.setItem('scores', JSON.stringify(scoreBase));
+}
+
+// function to sort object. from MDN Array.prototype.sort
+function compare(a,b){
+  if (a.score < b.score) return -1;
+  if (a.score > b.score) return 1;
+  return 0;
 }
 
 //game object constructor
