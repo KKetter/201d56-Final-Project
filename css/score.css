@@ -7,6 +7,8 @@
   margin-top: 2%;
   padding-top: 2%;
   padding-bottom: 2%;
+  height: 52%;
+  overflow: auto;
 }
 #scoreName{
   font-size: 30px;
@@ -33,4 +35,8 @@ li{
 #scoreDisplay{
 float: right;
 text-align: right;
+}
+
+#score-footer{
+  bottom: -4px;
 }
