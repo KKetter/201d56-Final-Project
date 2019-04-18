@@ -8,10 +8,6 @@ li {
   padding-bottom: 1em;
 }
 
-#instructions {
-  margin: 0 2em 0 2em;
-}
-
 .info-banner {
   text-align: center;
   margin-top: 2em;
@@ -20,9 +16,17 @@ li {
 
 }
   
-  #ins-text {
-    margin-top: 1em;
-  }
+#ins-text {
+  margin-top: 1em;
+}
+
+#instructions {
+  margin: 0 2em 0 2em;
+}
+
+#dev-button {
+  display: none;
+}
 
 /* Game Page */
 .play-space {
