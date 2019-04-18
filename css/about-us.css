@@ -1,0 +1,38 @@
+/*** About Us Styles ***/
+div{
+  font-family: 'Anton', sans-serif;
+}
+
+.about-us{
+  text-align: center; 
+}
+
+.about-us h2{
+  margin: 30px; 
+  font-size: 35px;
+  font-weight: bold;
+  animation-direction: reverse;
+  animation: slideup 3s linear;
+}
+
+.about-us h3{
+  font-size: 30px;
+  text-align: center;
+  margin-top: 30px;
+  color: #F6927C;
+}
+
+.about-us p{
+  margin-bottom: 30px;
+  animation-direction: reverse;
+  animation: slideup 3s linear;
+}
+
+@keyframes slideup {
+  from {
+    margin-bottom: 100%;
+  }
+  to {
+    margin-bottom: 0%;
+  }
+}

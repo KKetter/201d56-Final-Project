@@ -9,7 +9,7 @@ function renderScores(){
     var targetEl = document.getElementById('highScore');
     for (let i = 0; i < scoreBase.length; i++){
       var liEl = document.createElement('li');
-      liEl.innerHTML = `<span class="scoreDisplay">${scoreBase[i].userName}</span> <span class="scoreDisplay">${scoreBase[i].score}</span>`;
+      liEl.innerHTML = `<span id="userDisplay">${scoreBase[i].userName}</span> <div id="scoreDisplay">${scoreBase[i].score}</div>`;
       targetEl.appendChild(liEl);
     }
   }
