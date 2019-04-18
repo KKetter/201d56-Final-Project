@@ -3,9 +3,9 @@
 var scoreBase = [];
 
 if (localStorage.gameInfo){
-  var gameInfo = JSON.parse(localStorage.gameInfo);
-  localStorage.clear('gameInfo');
-  checkHighScore(gameInfo[0], gameInfo[1]);
+  var gameInfoArray = JSON.parse(localStorage.gameInfo);
+  localStorage.removeItem('gameInfo');
+  checkHighScore(gameInfoArray[0], gameInfoArray[1]);
 } else {
   loadHighScore();
 }
@@ -16,6 +16,7 @@ function checkHighScore(user, userScore){
     scoreBase = highScore;
   }
   scoreBase.push({userName: user, score: userScore});
+  scoreBase.sort(compare);
 }
 
 function loadHighScore(){
@@ -23,10 +24,11 @@ function loadHighScore(){
     var highScore = JSON.parse(localStorage.scores);
     scoreBase = highScore;
   }
+  scoreBase.sort(compare);
 }
 
 function saveHighScores(){
-  if (scoreBase.length > 10){scoreBase.pop();}
+  if (scoreBase.length > 10) scoreBase.pop();
   localStorage.setItem('scores', JSON.stringify(scoreBase));
 }
 
