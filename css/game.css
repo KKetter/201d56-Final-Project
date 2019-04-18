@@ -12,22 +12,17 @@ li {
   margin: 0 2em 0 2em;
 }
 
-#ins-banner {
+.info-banner {
+  text-align: center;
   margin-top: 2em;
-}
+  color: #F6927C;
+  font-size: 1.5em;
 
-  #info-banner {
-    text-align: center;
-    margin-top: 2em;
-    color: #F6927C;
-    font-size: 1.5em;
-  
-  }
+}
   
   #ins-text {
     margin-top: 1em;
   }
-  
 
 /* Game Page */
 .play-space {
@@ -79,4 +74,13 @@ li {
   font-family: 'Anton', sans-serif;
   font-size: 20px;
   color: #304F5E; 
+}
+
+.win-tile-container{
+  border-color: #46B9AB;
+  background-color:#46B9AB;
+}
+
+.win-text-color{
+  color:#46B9AB;
 }

@@ -130,6 +130,13 @@ function handleClick(event) {
       boardGrid.removeEventListener('click', handleClick);
       let winEl = document.getElementById('info-text');
       winEl.innerText = `Yey, you solved the puzzle in ${score} moves!`;
+      document.getElementById('tile-container').classList.add('win-tile-container');
+      var temp = document.getElementsByClassName('board-number');
+      for (let index = 0; index < temp.length; index++) {
+        if (temp[index].textContent !== '0') {
+          temp[index].classList.add('win-text-color');
+        }
+      }
       highScoreInit();
       scoreBase.sort(compare);
       saveHighScores();
@@ -294,7 +301,7 @@ if (localStorage.gameState) {
   new Game(username, board, score, gameOver);
 }
 
-// board = [2, 0, 3, 1, 4, 5, 6, 7, 8]; // easy game beat hack
+board = [2, 0, 3, 1, 4, 5, 6, 7, 8]; // easy game beat hack
 drawBoard();
 displayScore();
 generateAllMoves();
