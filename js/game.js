@@ -1,5 +1,6 @@
 'use strict';
 
+
 var board = [];
 var gameState = [];
 var grid = 9;
@@ -16,6 +17,7 @@ var gameOver = false;
 var binary = false;
 var scoreBase = [];
 
+// Constructor for valid moves
 function ValidMoves(key, array) {
   this.key = key;
   this.moves = array;
@@ -111,6 +113,7 @@ function handleClick(event) {
   }
 
   var indexOfZero = getZero();
+  //Check if the click is valid move
   if (validMove(board.indexOf(select), indexOfZero)) {
     board[board.indexOf(select)] = 0;
     board[indexOfZero] = select;
@@ -120,6 +123,7 @@ function handleClick(event) {
     //Check if the puzzle is solved
     gameOver = checkPuzzleSolved();
     gameState[0].gameOver = gameOver;
+    // Puzzle is solved do the following
     if(gameOver === true){
       let gameInfo = [gameState[0].username, score];
       localStorage.setItem('gameInfo', JSON.stringify(gameInfo));
@@ -146,6 +150,7 @@ function displayScore() {
   scoreDisplay.innerText = `Total Number of Moves: ${score}`;
 }
 
+//Function to convert given decimal to binary
 function convertToBinary(decimal) {
   var binaryNum = decimal.toString(2);
   if(binaryNum.length === 1) binaryNum = '000' + binaryNum;
@@ -154,11 +159,13 @@ function convertToBinary(decimal) {
   return binaryNum;
 }
 
+// Function to convert given binary to decimal
 function convertToDecimal(binary) {
   var decimalNum = parseInt(binary, 2);
   return decimalNum;
 }
 
+// Function to initialize high score
 function highScoreInit() {
   if (localStorage.gameInfo){
     var gameInfoArray = JSON.parse(localStorage.gameInfo);
@@ -169,6 +176,7 @@ function highScoreInit() {
   }
 }
 
+// Function to check the high score
 function checkHighScore(user, userScore){
   if (localStorage.scores){
     var highScore = JSON.parse(localStorage.scores);
@@ -178,6 +186,7 @@ function checkHighScore(user, userScore){
   scoreBase.sort(compare);
 }
 
+// Function to load the score from local storage
 function loadHighScore(){
   if (localStorage.scores){
     var highScore = JSON.parse(localStorage.scores);
@@ -186,6 +195,8 @@ function loadHighScore(){
   scoreBase.sort(compare);
 }
 
+
+// Function to save the high score to local storage
 function saveHighScores(){
   if (scoreBase.length > 10) scoreBase.pop();
   localStorage.setItem('scores', JSON.stringify(scoreBase));
@@ -239,24 +250,48 @@ function handleBinaryGame(e){
   displayScore();
 }
 
+//function to initialize board
+function initializeBoard(){
+  generateRandomNumber();
+  score = 0;
+  username = localStorage.getItem('username');
+}
 //Invocation Zone
 if (localStorage.gameState) {
   var parsedLS = JSON.parse(localStorage.gameState);
+ 
   for (var i = 0; i < parsedLS.length; i++){
     if(localStorage.getItem('username') === parsedLS[i].username){
       username = parsedLS[i].username;
-      board = parsedLS[i].board;
-      score = parseInt(parsedLS[i].score);
-      gameOver = parsedLS[i].gameOver;
-      new Game(username, board, score, gameOver);
+      //Check if board is empty or not
+      if(parsedLS[i].board){
+        board = parsedLS[i].board;
+      } else{
+        generateRandomNumber();
+      }
+      
+      //Check if score is empty or not
+      if(parsedLS[i].score){
+        score = parsedLS[i].score;
+      } else{
+        score = 0;
+      }
+
+      //Check if game over flag is empty
+      if(parsedLS[i].gameOver){
+        gameOver = parsedLS[i].gameOver;
+      } else{
+        gameOver = false;
+      }
+
     } else{
-      generateRandomNumber();
+      initializeBoard();
     }
+    new Game(username, board, score, gameOver);
   }
 } else {
-  generateRandomNumber();
-  score = 0;
-  new Game(localStorage.getItem('username'), board, score, gameOver);
+  initializeBoard();
+  new Game(username, board, score, gameOver);
 }
 
 // board = [2, 0, 3, 1, 4, 5, 6, 7, 8]; // easy game beat hack
@@ -270,4 +305,5 @@ newGameButton.addEventListener('click', handleNewGame);
 //Listener for New binary game button
 var binaryGameButton = document.getElementById('binary-button');
 binaryGameButton.addEventListener('click', handleBinaryGame);
+//Listener for the board tiles
 boardGrid.addEventListener('click', handleClick);

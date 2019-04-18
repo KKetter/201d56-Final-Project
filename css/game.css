@@ -1,3 +1,4 @@
+
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -12,12 +13,68 @@ li {
 }
 
 #ins-banner {
+
+/* Game Page */
+.play-space {
+  display: grid;
+  grid-template-columns: repeat(3, min-content);
+  grid-gap: 2px;
+  grid-auto-rows: 100px;
+  grid-auto-columns: min-content;
+  border-style: groove;
+  border-color: #F6927C;
+  border-width: 5px;
+  max-width: 302px;
+  margin: 0 auto;
+  margin-top: 2em;
+}
+
+.tile {
+  height: 100px;
+  width: 100px;
+  color: #304F5E;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.board-number {
+  font-size: 500%;
+}
+
+.board-number-binary {
+  font-size: 200%;
+  margin-top: 30px;
+}
+
+#new-game-button input{
+  margin: 30px auto;
+  display: block;
+  background-color: #CBC556;
+  padding: 12px 30px;
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  color: #304F5E;
+}
+
+#new-binary-button input{
+  margin: 30px auto;
+  display: block;
+  background-color: #CBC556;
+  padding: 12px 30px;
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  color: #304F5E; 
+}
+
+#info-banner {
   text-align: center;
   margin-top: 2em;
   color: #F6927C;
   font-size: 1.5em;
+
 }
 
 #ins-text {
   margin-top: 1em;
 }
+
