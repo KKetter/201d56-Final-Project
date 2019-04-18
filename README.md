@@ -33,7 +33,7 @@
 
 ![solution2](../blob/master/img/solution2.png)
 
-    After completion the user is directed to a scores page.  
+    After completion of the puzzle, the user is notified that the puzzle is solved. If the user scored high enough, it is displayed to the scores page.  
     
     From this page the following options are provided:
         1) Play Again - user nickname is saved to local storage and grid is reinitialized.
