@@ -239,9 +239,16 @@ function handleBinaryGame(e){
   displayScore();
 }
 
+//function to initialize board
+function initializeBoard(){
+  generateRandomNumber();
+  score = 0;
+  username = localStorage.getItem('username');
+}
 //Invocation Zone
 if (localStorage.gameState) {
   var parsedLS = JSON.parse(localStorage.gameState);
+  console.log(parsedLS);
   for (var i = 0; i < parsedLS.length; i++){
     if(localStorage.getItem('username') === parsedLS[i].username){
       username = parsedLS[i].username;
@@ -258,20 +265,26 @@ if (localStorage.gameState) {
       } else{
         score = 0;
       }
+
+      //Check if game over flag is empty
+      if(parsedLS[i].gameOver){
+        gameOver = parsedLS[i].gameOver;
+      } else{
+        gameOver = false;
+      }
+
     
     //   score = parseInt(parsedLS[i].score);
     //   gameOver = parsedLS[i].gameOver;
     //   new Game(username, board, score, gameOver);
     } else{
-      generateRandomNumber();
-      score = 0;
+      initializeBoard();
     }
     new Game(username, board, score, gameOver);
   }
 } else {
-  generateRandomNumber();
-  score = 0;
-  new Game(localStorage.getItem('username'), board, score, gameOver);
+  initializeBoard();
+  new Game(username, board, score, gameOver);
 }
 
 // board = [2, 0, 3, 1, 4, 5, 6, 7, 8]; // easy game beat hack
