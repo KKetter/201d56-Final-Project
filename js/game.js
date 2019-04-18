@@ -123,9 +123,8 @@ function handleClick(event) {
       let gameInfo = [gameState[0].username, score];
       localStorage.setItem('gameInfo', JSON.stringify(gameInfo));
       boardGrid.removeEventListener('click', handleClick);
-      let winEl = document.getElementById('you-won');
-      winEl.innerText = 'Yey, you solved the puzzle!';
-      // alert('Yey, you solved the puzzle!');
+      let winEl = document.getElementById('info-text');
+      winEl.innerText = `Yey, you solved the puzzle in ${score} moves!`;
     }
     localStorage.setItem('gameState', JSON.stringify(gameState));
   }
@@ -139,8 +138,8 @@ function updateMoves() {
 
 //function to display score on page
 function displayScore() {
-  var scoreDisplay = document.getElementById('move-number');
-  scoreDisplay.innerHTML = score;
+  var scoreDisplay = document.getElementById('info-text');
+  scoreDisplay.innerText = `Total Number of Moves: ${score}`;
 }
 
 function convertToBinary(decimal) {
@@ -217,7 +216,7 @@ if (localStorage.gameState) {
   new Game(localStorage.getItem('username'), board, score, gameOver);
 }
 
-// board = [0, 2, 3, 1, 4, 5, 6, 7, 8]; // easy game beat hack
+// board = [2, 0, 3, 1, 4, 5, 6, 7, 8]; // easy game beat hack
 drawBoard();
 displayScore();
 generateAllMoves();
