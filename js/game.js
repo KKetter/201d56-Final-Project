@@ -13,6 +13,7 @@ var gridSize = 3;
 var score;
 var username;
 var gameOver = false;
+var binary = false;
 
 function ValidMoves(key, array) {
   this.key = key;
@@ -69,7 +70,12 @@ function generateAllMoves() {
 //function to place random numbers to the board
 function drawBoard() {
   for (var j = 0; j < divGrid.length; j++) {
-    divGrid[j].innerHTML = `<span class="board-number">${board[j]}</span>`;
+
+    if (binary) {
+      divGrid[j].innerHTML = `<span class="board-number">${convertToBinary(board[j])}</span>`;
+    } else {
+      divGrid[j].innerHTML = `<span class="board-number">${board[j]}</span>`;
+    }
 
     if (board[j] === 0) {
       divGrid[j].style.backgroundColor = emptyTileColor;
@@ -99,6 +105,10 @@ function getZero() {
 function handleClick(event) {
   //Check if the tile can be moved
   var select = parseInt(event.target.textContent);
+  if (binary) {
+    select = convertToDecimal(select);
+  }
+
   var indexOfZero = getZero();
   if (validMove(board.indexOf(select), indexOfZero)) {
     board[board.indexOf(select)] = 0;
@@ -130,6 +140,19 @@ function displayScore() {
   scoreDisplay.innerHTML = score;
 }
 
+function convertToBinary(decimal) {
+  var binaryNum = decimal.toString(2);
+  if(binaryNum.length === 1) binaryNum = '000' + binaryNum;
+  if(binaryNum.length === 2) binaryNum = '00' + binaryNum;
+  if(binaryNum.length === 3) binaryNum = '0' + binaryNum;
+  return binaryNum;
+}
+
+function convertToDecimal(binary) {
+  var decimalNum = parseInt(binary, 2);
+  return decimalNum;
+}
+
 //game object constructor
 function Game(username, board, score, gameOver) {
   this.username = username;
@@ -141,7 +164,7 @@ function Game(username, board, score, gameOver) {
 
 //function to check if the puzzle is solved
 function checkPuzzleSolved(){
-  // if (gameState[0].score > 3) return true;
+  if (gameState[0].score > 3) return true;
   var currentNumber = 1;
   for(var i = 0; i < board.length; i++){
     if(board[i] !== 0){
@@ -157,6 +180,27 @@ function checkPuzzleSolved(){
 //function to handle New Game button
 function handleNewGame(){
   localStorage.removeItem('gameState');
+  drawBoard();
+  score = 0;
+  displayScore();
+}
+
+//function to handle New Binary Game button
+function handleBinaryGame(e){
+  e.preventDefault();
+  binary = true;
+  localStorage.removeItem('gameState');
+
+  var tileEl = document.getElementById('tile-container');
+  tileEl.setAttribute('class', 'play-space-binary');
+
+  // var tileEla = document.getElementById('tile-0');
+  // tileEla.setAttribute('id', 'tile-a');
+  // var tileElb = document.getElementById('tile-1');
+  // tileElb.setAttribute('id', 'tile-b');
+  // var tileElc = document.getElementById('tile-2');
+  // tileElc.setAttribute('id', 'tile-c');
+
   drawBoard();
   score = 0;
   displayScore();
@@ -189,4 +233,6 @@ generateAllMoves();
 //Listener for New game button
 var newGameButton = document.getElementById('game-button');
 newGameButton.addEventListener('click', handleNewGame);
+var binaryGameButton = document.getElementById('binary-button');
+binaryGameButton.addEventListener('click', handleBinaryGame);
 boardGrid.addEventListener('click', handleClick);

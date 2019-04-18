@@ -43,6 +43,22 @@ nav a:hover {
   max-width: 302px;
   margin: 0 auto;
   margin-top: 2em;
+  font-size: 500%;
+}
+
+.play-space-binary {
+  display: grid;
+  grid-template-columns: repeat(3, min-content);
+  grid-gap: 2px;
+  grid-auto-rows: 100px;
+  grid-auto-columns: min-content;
+  border-style: groove;
+  border-color: #F6927C;
+  border-width: 5px;
+  max-width: 302px;
+  margin: 0 auto;
+  margin-top: 4em;
+  font-size: 200%;
 }
 
 .tile {
@@ -52,6 +68,60 @@ nav a:hover {
   border-radius: 5px;
   text-align: center;
 }
+
+/* .board-number {
+  margin: 60px;
+} */
+
+/* #tile-a {
+  padding-top: 30px;
+  font-size: 40px;
+}
+
+#tile-b {
+  padding-top: 30px;
+  font-size: 40px;
+}
+
+#tile-c {
+  padding-top: 30px;
+  font-size: 40px;
+}
+
+#tile-d {
+  padding-top: 30px;
+  font-size: 46px;
+}
+
+#tile-e {
+  padding-top: 30px;
+  font-size: 46px;
+}
+
+#tile-f {
+  padding-top: 30px;
+  font-size: 46px;
+}
+
+#tile-g {
+  padding-top: 30px;
+  font-size: 46px;
+}
+
+#tile-h {
+  padding-top: 30px;
+  font-size: 46px;
+}
+
+#tile-i {
+  padding-top: 30px;
+  font-size: 46px;
+}
+
+.tile-binary {
+  padding-top: 30px;
+  font-size: 46px;
+} */
 
 h1 {
   font-size: 3em;
@@ -93,10 +163,6 @@ li {
 #copyright {
   text-align: center;
   padding-top: 40px;
-}
-
-.board-number {
-  font-size: 500%;
 }
 
 #move-counter {
@@ -142,6 +208,16 @@ li {
 
 /* Game Page */
 #new-game-button input{
+  margin: 30px auto;
+  display: block;
+  background-color: #CBC556;
+  padding: 12px 30px;
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  color: #304F5E;
+}
+
+#new-binary-button input{
   margin: 30px auto;
   display: block;
   background-color: #CBC556;
