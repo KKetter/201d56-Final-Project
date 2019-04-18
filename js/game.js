@@ -110,7 +110,7 @@ function handleClick(event) {
     gameOver = checkPuzzleSolved();
     gameState[0].gameOver = gameOver;
     if(gameOver === true){
-      let gameInfo = [username, score];
+      let gameInfo = [gameState[0].username, score];
       localStorage.setItem('gameInfo', JSON.stringify(gameInfo));
       alert('Yey, you solved the puzzle!');
     }
@@ -141,6 +141,7 @@ function Game(username, board, score, gameOver) {
 
 //function to check if the puzzle is solved
 function checkPuzzleSolved(){
+  // if (gameState[0].score > 3) return true;
   var currentNumber = 1;
   for(var i = 0; i < board.length; i++){
     if(board[i] !== 0){
@@ -155,7 +156,7 @@ function checkPuzzleSolved(){
 
 //function to handle New Game button
 function handleNewGame(){
-  localStorage.clear('gameState');
+  localStorage.removeItem('gameState');
   drawBoard();
   score = 0;
   displayScore();
