@@ -263,6 +263,8 @@ function showBinaryGameIns() {
   binEl.style.display = 'block';
   let butEl = document.getElementById('new-binary-button');
   butEl.style.display = 'none';
+  let samEl = document.getElementById('ins-text-sam');
+  samEl.style.display = 'none';
 }
 
 function showSamGameIns() {
