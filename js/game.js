@@ -362,7 +362,7 @@ function handleNewGame(e){
   }
 
   localStorage.removeItem('gameState');
-  board = [2, 0, 3, 1, 4, 5, 6, 7, 8]; // easy game beat hack
+  //board = [2, 0, 3, 1, 4, 5, 6, 7, 8]; // easy game beat hack
   drawBoard();
   score = 0;
   displayScore();
