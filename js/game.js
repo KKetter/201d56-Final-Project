@@ -14,6 +14,7 @@ var score;
 var username;
 var gameOver = false;
 var binary = false;
+var sam = false;
 var scoreBase = [];
 var newGameClicked = false;
 
@@ -76,6 +77,10 @@ function drawBoard() {
 
     if (binary) {
       divGrid[j].innerHTML = `<div class="board-number-binary">${convertToBinary(board[j])}</div>`;
+
+    } else if (sam) {
+      divGrid[j].innerHTML = `<div class="board-number-binary">${samSquares(board[j])}</div>`;
+
     } else {
       divGrid[j].innerHTML = `<span class="board-number">${board[j]}</span>`;
     }
@@ -110,6 +115,18 @@ function handleClick(event) {
   var select = parseInt(event.target.textContent);
   if (binary) {
     select = convertToDecimal(select);
+  }
+
+  if (sam) {
+    select = event.target.textContent;
+    if (select === 'Demi') select = 1;
+    if (select === 'Agg') select = 2;
+    if (select === 'Ally') select = 3;
+    if (select === 'Bob') select = 4;
+    if (select === 'Buddy') select = 5;
+    if (select === 'Sam') select = 6;
+    if (select === 'Toeny') select = 7;
+    if (select === 'Trill') select = 8;
   }
 
   var indexOfZero = getZero();
@@ -170,6 +187,19 @@ function convertToBinary(decimal) {
 function convertToDecimal(binary) {
   var decimalNum = parseInt(binary, 2);
   return decimalNum;
+}
+
+function samSquares(boardNum) {
+  let squareName;
+  if (boardNum === 1) squareName = 'Demi';
+  if (boardNum === 2) squareName = 'Agg';
+  if (boardNum === 3) squareName = 'Ally';
+  if (boardNum === 4) squareName = 'Bob';
+  if (boardNum === 5) squareName = 'Buddy';
+  if (boardNum === 6) squareName = 'Sam';
+  if (boardNum === 7) squareName = 'Toeny';
+  if (boardNum === 8) squareName = 'Trill';
+  return squareName;
 }
 
 // Function to initialize high score
@@ -267,6 +297,7 @@ function handleNewGame(e){
   allValidMoves = [];
   gameOver = false;
   binary = false;
+  sam = false;
   scoreBase = [];
   newGameClicked = false;
 
@@ -338,6 +369,17 @@ function handleBinaryGame(e){
   showBinaryGameIns();
 }
 
+//function to handle New Binary Game button
+function handleSamGame(e){
+  e.preventDefault();
+  sam = true;
+  localStorage.removeItem('gameState');
+  drawBoard();
+  score = 0;
+  displayScore();
+  // showBinaryGameIns();
+}
+
 //function to initialize board
 function initializeBoard(){
   generateRandomNumber();
@@ -392,5 +434,8 @@ newGameButton.addEventListener('click', handleNewGame);
 //Listener for New binary game button
 var binaryGameButton = document.getElementById('binary-button');
 binaryGameButton.addEventListener('click', handleBinaryGame);
+//Listener for New Sam game button
+var samGameButton = document.getElementById('sam-button');
+samGameButton.addEventListener('click', handleSamGame);
 //Listener for the board tiles
 boardGrid.addEventListener('click', handleClick);
