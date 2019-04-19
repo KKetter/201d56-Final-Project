@@ -191,6 +191,7 @@ function convertToDecimal(binary) {
 
 function samSquares(boardNum) {
   let squareName;
+  if (boardNum === 0) squareName = 0;
   if (boardNum === 1) squareName = 'Demi';
   if (boardNum === 2) squareName = 'Agg';
   if (boardNum === 3) squareName = 'Ally';
