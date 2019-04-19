@@ -226,6 +226,10 @@ function showGameButtons() {
 function showBinaryGameIns() {
   let insEl = document.getElementById('instructions');
   insEl.style.display = 'block';
+  let decEl = document.getElementById('ins-text');
+  decEl.style.display = 'none';
+  let binEl = document.getElementById('ins-text-binary');
+  binEl.style.display = 'block';
   let butEl = document.getElementById('new-binary-button');
   butEl.style.display = 'none';
 }

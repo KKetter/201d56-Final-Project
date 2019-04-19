@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="./css/game.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Anton|Bangers|Bungee+Inline|Bungee+Outline|Bungee+Shade|Press+Start+2P"
-      rel="stylesheet"/>
+      rel="stylesheet"
+    />
     <title>Document</title>
   </head>
   <body>
@@ -22,49 +23,86 @@
       </nav>
     </header>
     <div class="wrapper">
-    <div>
-    <div class='info-banner'>
-        <p id="info-text"></p>
+      <div>
+        <div class="info-banner">
+          <p id="info-text"></p>
+        </div>
+        <div class="play-space" id="tile-container">
+          <div class="tile" id="tile-0"></div>
+          <div class="tile" id="tile-1"></div>
+          <div class="tile" id="tile-2"></div>
+          <div class="tile" id="tile-3"></div>
+          <div class="tile" id="tile-4"></div>
+          <div class="tile" id="tile-5"></div>
+          <div class="tile" id="tile-6"></div>
+          <div class="tile" id="tile-7"></div>
+          <div class="tile" id="tile-8"></div>
+        </div>
+        <div id="new-game-button">
+          <form id="game-button">
+            <input type="submit" name="new-game" value="New Game" />
+          </form>
+        </div>
       </div>
-    <div class="play-space" id="tile-container">
-      <div class="tile" id="tile-0"></div>
-      <div class="tile" id="tile-1"></div>
-      <div class="tile" id="tile-2"></div>
-      <div class="tile" id="tile-3"></div>
-      <div class="tile" id="tile-4"></div>
-      <div class="tile" id="tile-5"></div>
-      <div class="tile" id="tile-6"></div>
-      <div class="tile" id="tile-7"></div>
-      <div class="tile" id="tile-8"></div>
-    </div>
-    <div id='new-game-button'>
-      <form id = 'game-button'>
-      <input type="submit" name = "new-game" value="New Game">
-    </form>
-    </div>
-</div>
-<div id="instructions">
-  <p class="info-banner">Game Instructions</p>
-  <ul id="ins-text"><li>Place all numbered tiles in order from 1 to 8 to win</li>
-    <li>Use as few moves as possible to get a better score</li>
-    <li>The position of the blank tile is irrelevant once all other tiles are in order</li>
-    <li>Click any tile that is adjacent to the white tile to swap tile positions</li><ul>
-  
-</div>
+      <div id="instructions">
+        <p class="info-banner">Game Instructions</p>
+        <ul id="ins-text">
+          <li>Place all numbered tiles in order from 1 to 8 to win</li>
+          <li>Use as few moves as possible to get a better score</li>
+          <li>
+            The position of the blank tile is irrelevant once all other tiles
+            are in order
+          </li>
+          <li>
+            Click any tile that is adjacent to the white tile to swap tile
+            positions
+          </li>
+        </ul>
+        <ul id="ins-text-binary">
+          <li>The binary version of the game works in the same way as the decimal version</li>
+          <li>Place the tiles in order from 1 to</li>
+          <li>
+            The position of the blank tile is irrelevant once all other tiles
+            are in order
+          </li>
+          <li>
+            Click any tile that is adjacent to the white tile to swap tile
+            positions
+          </li>
+          <li>
+              This game uses a nibble to represent numbers 1 to 8
+            </li>
+            <li>
+                In the examples below, add the numbers in the top row if the bit underneath is turned on to get a decimal number - the 3 binary numbers are 1, 6, 8
+              </li>
+          <table id="bin-table">
+              <tr>
+                <th>8421</th>
+                <th>8421</th> 
+                <th>8421</th>
+              </tr>
+              <tr>
+                <td>0001</td>
+                <td>0110</td> 
+                <td>1000</td>
+              </tr>
+            </table>
+        </ul>
+      </div>
 
-<div id="new-binary-button">
-      <form id="binary-button">
-      <input type="submit" name = "new-binary" value="Dev Game">
-    </form>
-    <form id="sam-button">
-      <input type="submit" name = "sam-game" value="Samm Game">
-    </form>
-    <form id="hex-button">
-      <input type="submit" name = "hex game" value="Hex Game">
-    </form>
+      <div id="new-binary-button">
+        <form id="binary-button">
+          <input type="submit" name="new-binary" value="Dev Game" />
+        </form>
+        <form id="sam-button">
+          <input type="submit" name="sam-game" value="Samm Game" />
+        </form>
+        <form id="hex-button">
+          <input type="submit" name="hex game" value="Hex Game" />
+        </form>
+      </div>
     </div>
-  </div>
-  
+
     <footer>
       <p id="copyright">Copyright &copy; 2019 Tile Slide</p>
     </footer>

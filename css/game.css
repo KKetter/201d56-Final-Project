@@ -1,4 +1,3 @@
-
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -12,6 +11,7 @@ li {
 .info-banner {
   text-align: center;
   margin-top: 2em;
+  margin-bottom: 1em;
   color: #F6927C;
   font-size: 1.5em;
 
@@ -29,11 +29,14 @@ li {
   display: none;
 }
 
+#ins-text-binary {
+  display: none;
+}
+
 #new-binary-button {
   margin-top: 2em;
 }
 
-/* Game Page */
 .play-space {
   display: grid;
   grid-template-columns: repeat(3, min-content);
@@ -96,4 +99,18 @@ li {
 
 .win-text-color{
   color:#46B9AB;
+}
+
+table {
+  margin-left: 80px;
+}
+
+#bin-table, th, td {
+  width: 300px;
+  border: 2px solid #F6927C;
+  padding: 6px;
+}
+
+#bin-table, td {
+  text-align: center;
 }
