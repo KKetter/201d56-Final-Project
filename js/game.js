@@ -264,6 +264,19 @@ function showBinaryGameIns() {
   butEl.style.display = 'none';
 }
 
+function showSamGameIns() {
+  let insEl = document.getElementById('instructions');
+  insEl.style.display = 'block';
+  let decEl = document.getElementById('ins-text');
+  decEl.style.display = 'none';
+  let binEl = document.getElementById('ins-text-binary');
+  binEl.style.display = 'none';
+  let samEl = document.getElementById('ins-text-sam');
+  samEl.style.display = 'block';
+  let butEl = document.getElementById('new-binary-button');
+  butEl.style.display = 'none';
+}
+
 //game object constructor
 function Game(username, board, score, gameOver) {
   this.username = username;
@@ -377,7 +390,7 @@ function handleSamGame(e){
   drawBoard();
   score = 0;
   displayScore();
-  // showBinaryGameIns();
+  showSamGameIns();
 }
 
 //function to initialize board
@@ -427,6 +440,8 @@ if (localStorage.gameState) {
 drawBoard();
 displayScore();
 generateAllMoves();
+let butEl = document.getElementById('new-binary-button');
+butEl.style.display = 'none';
 
 //Listener for New game button
 var newGameButton = document.getElementById('game-button');
